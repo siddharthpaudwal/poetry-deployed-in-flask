@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Siddharth Poetry Generator
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style> 
+                #momo {
+                              background: lightpink;
+                              animation: mymove 5s infinite;
+                    }
+
+                @keyframes mymove {
+                  50% {background-color: lightgrey;}
+                }
+                h1{
+                    text-align: center;
+                    color : magenta;
+                }
+                .btn {
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%);
+                              -ms-transform: translate(-50%, -50%);
+                              background-color: #f1f1f1;
+                              color: black;
+                              font-size: 16px;
+                              padding: 16px 30px;
+                              border: none;
+                              cursor: pointer;
+                              border-radius: 5px;
+                              text-align: center;
+                }
+
+              .btn:hover {
+                          background-color: brown;
+                          color: white;
+              }
+</style>
+    </head>
+    <body id='momo'>
+     
+      <div class="style-form-within" >    
+    <form id="form" method="post" action={{ url_for('predict') }}>
+          <div class="form-group">
+            <h1><label>Enter the title of poem</label></h1>
+            <input name="text_field" id="text_field" style="height: 200px;" type="text" class="form-control" placeholder="Enter here for your loved one">
+          </div>
+          <button id="button-a" type="submit" class="btn">Submit</button>
+          
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+         {% for your_list_element in prediction_text %}
+     			 <center><p>{{ your_list_element }} </p><center>
+  	  	 {% endfor %}
+      </div>
+    </body>
+</html>
